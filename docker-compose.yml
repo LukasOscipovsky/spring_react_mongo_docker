@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mongo:
+    build:
+      context: ./mongo
+      #user: root
+      #volumes: - mongodata:/data/db
+    ports:
+      - "27017:27017"
+    container_name: mongo
+  nesspoll-users:
+    build:
+      context: ./spring-apis/users-api   
+      #user: root
+    ports:
+      - "8080:9000"
+    container_name: users-api  
+    depends_on:
+      - "mongo"   
