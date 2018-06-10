@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "signup")
+    @PostMapping(value = "/signup")
     public void signup(@RequestBody UserDTO user) {
         userService.save(user);
     }

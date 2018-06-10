@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @ResponseBody
-    @GetMapping(value = "test")
+    @GetMapping(value = "/test")
     public String test() {
         return "Authorized";
     }

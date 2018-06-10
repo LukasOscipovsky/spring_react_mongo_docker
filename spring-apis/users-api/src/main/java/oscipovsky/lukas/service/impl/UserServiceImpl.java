@@ -30,14 +30,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepository.save(user);
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        var user = userRepository.findByUsername(username);
-
-        if(user == null) {
-            throw new IllegalArgumentException("User not found");
-        }
+        var user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User Not Found"));
 
         return new User(user.getUsername(), user.getPassword(), Collections.emptyList());
     }
