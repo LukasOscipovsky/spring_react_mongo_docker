@@ -4,7 +4,7 @@
 
 	<groupId>oscipovsky.lukas</groupId>
 	<artifactId>users-api</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>

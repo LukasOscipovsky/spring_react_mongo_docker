@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages = "oscipovsky.lukas.repository")
 public class MongoDB extends AbstractMongoConfiguration {
 
-    private static final String HOST = "127.0.0.1";
+    private static final String HOST = "172.18.0.2";
     private static final Integer PORT = 27017;
 
     @Override
