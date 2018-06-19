@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import oscipovsky.lukas.dto.UserRequest;
+import oscipovsky.lukas.dto.UserDTO;
 import oscipovsky.lukas.model.UserModel;
 import oscipovsky.lukas.repository.UserRepository;
 import oscipovsky.lukas.service.UserService;
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public void save(UserRequest userDTO) {
+    public void save(UserDTO userDTO) {
         var user = new UserModel(userDTO.getUsername(), passwordEncoder.encode(userDTO.getPassword()));
 
         userRepository.save(user);

@@ -9,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import oscipovsky.lukas.dto.UserRequest;
+import oscipovsky.lukas.dto.UserDTO;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -37,7 +37,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
             var credentials = new ObjectMapper()
-                    .readValue(req.getInputStream(), UserRequest.class);
+                    .readValue(req.getInputStream(), UserDTO.class);
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
