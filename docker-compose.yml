@@ -17,3 +17,9 @@ services:
     container_name: users-api  
     depends_on:
       - "mongo"   
+
+  app:
+    build:
+      context: ./app
+    ports:
+      - "3000:3000"      
