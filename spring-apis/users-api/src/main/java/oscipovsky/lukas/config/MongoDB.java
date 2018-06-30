@@ -1,14 +1,9 @@
 package oscipovsky.lukas.config;
 
 import com.mongodb.MongoClient;
-import cz.jirutka.spring.embedmongo.EmbeddedMongoFactoryBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
-import java.io.IOException;
 
 @Configuration
 @EnableMongoRepositories(basePackages = "oscipovsky.lukas.repository")
@@ -30,12 +25,12 @@ public class MongoDB extends AbstractMongoConfiguration {
         return "app";
     }
 
-    @Bean
-    public MongoTemplate mongoTemplate() throws IOException { // use only with development
-        EmbeddedMongoFactoryBean mongo = new EmbeddedMongoFactoryBean();
-        mongo.setBindIp(MONGO_DB_URL);
-        MongoClient mongoClient = mongo.getObject();
-        MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, MONGO_DB_NAME);
-        return mongoTemplate;
-    }
+//    @Bean
+//    public MongoTemplate mongoTemplate() throws IOException { // use only with development
+//        EmbeddedMongoFactoryBean mongo = new EmbeddedMongoFactoryBean();
+//        mongo.setBindIp(MONGO_DB_URL);
+//        MongoClient mongoClient = mongo.getObject();
+//        MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, MONGO_DB_NAME);
+//        return mongoTemplate;
+//    }
 }
