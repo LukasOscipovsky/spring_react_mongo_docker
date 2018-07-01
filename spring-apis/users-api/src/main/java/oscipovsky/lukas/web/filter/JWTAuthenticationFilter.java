@@ -63,6 +63,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .setExpiration(Date.from(expirationTime.toInstant()))
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .compact();
-        res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+
+
+        String authorization =  TOKEN_PREFIX + token;
+        res.addHeader(HEADER_STRING, authorization);
+        res.getWriter().write(new ObjectMapper().writeValueAsString(authorization));
     }
 }
