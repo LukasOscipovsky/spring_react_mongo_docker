@@ -1,9 +1,11 @@
 package oscipovsky.lukas.model;
 
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user")
+@Getter
 public final class UserModel {
 
     @Id
@@ -12,28 +14,7 @@ public final class UserModel {
     private final String password;
 
     public UserModel(String username, String password) {
-       this.username = username;
-       this.password = password;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        this.username = username;
+        this.password = password;
     }
 }

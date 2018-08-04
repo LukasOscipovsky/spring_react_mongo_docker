@@ -1,12 +1,13 @@
 package oscipovsky.lukas.service.impl;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import oscipovsky.lukas.dto.UserRequest;
 import oscipovsky.lukas.model.UserModel;
 import oscipovsky.lukas.repository.UserRepository;
@@ -14,7 +15,7 @@ import oscipovsky.lukas.service.UserService;
 
 import java.util.Collections;
 
-@Component
+@Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
